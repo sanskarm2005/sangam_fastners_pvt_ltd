@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangam Fasteners Pvt Ltd | 25 Years of Industrial Excellence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <header>
+        <nav>
+            <div class="logo">SANGAM FASTENERS</div>
+            <div class="company-logo">
+                <img src="/assets/images/logo.png" alt="Company Logo" width="50px">
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#financials">Financials</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1 id="typing-text"></h1>
+        <p>A trusted manufacturer with 25 years of legacy, serving Tier-1 industrial leaders across India.</p>
+        <a href="#products" class="btn-main">EXPLORE SOLUTIONS</a>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Company Profile</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Corporate ID</h3>
+                    <p><strong>CIN:</strong> U80302KA2000PTC027793</p>
+                    <p><strong>Status:</strong> Active (Since Sept 2000)</p>
+                    <p><strong>Workforce:</strong> 215+ Skilled Employees</p>
+                </div>
+                <div class="info-card">
+                    <h3>Financial Strength</h3>
+                    <p><strong>Annual Revenue:</strong> ₹19.4 Cr (FY2025)</p>
+                    <p><strong>Growth:</strong> 19% CAGR</p>
+                    <p><strong>Capital:</strong> ₹50L Authorized / ₹20L Paid-up</p>
+                </div>
+                <div class="info-card">
+                    <h3>Management</h3>
+                    <p><strong>MD:</strong> Sangemesh Ishwarappa Handigol</p>
+                    <p><strong>Director:</strong> Ashwini Sangamesh Handigol</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="financials">
+        <h2>Financial Performance</h2>
+        <div class="financial-summary">
+            <div class="stat-card">
+                <h4 class="counter" data-target="19">0</h4>
+                <p>Revenue (INR Cr)</p>
+            </div>
+            <div class="stat-card">
+                <h4 class="counter" data-target="762">0</h4>
+                <p>Profit Growth (%)</p>
+            </div>
+            <div class="stat-card">
+                <h4 class="counter" data-target="215">0</h4>
+                <p>Skilled Employees</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-box">
+                <h3>Revenue Trend (INR Cr)</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Profitability Ratios</h3>
+                <canvas id="ratioChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Industrial Product Range</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="/assets/images/Machined Components.png" alt="Machined Components">
+                <div class="product-info">
+                    <h3>Machined Components</h3>
+                    <p>Carbon & Alloy Steel (16mm-140mm). Quenched, Tempered, and Induction Hardened.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/assets/images/Hex Nuts.png" alt="Hex Nuts">
+                <div class="product-info">
+                    <h3>Precision Hex Nuts</h3>
+                    <p>Standard and heavy-duty nuts used in Power Plants and Valve industries.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/assets/images/U-Bolts.png" alt="U-Bolts">
+                <div class="product-info">
+                    <h3>Industrial U-Bolts</h3>
+                    <p>Custom-bent fasteners for piping, mining, and heavy automotive applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients">
+        <div class="container">
+            <h2 class="text-center">Powering Global Brands</h2>
+            <p class="section-subtitle">A trusted partner for Tier-1 Home Appliance Manufacturers.</p>
+            
+            <div class="client-grid">
+                <div class="client-logo">
+                    <img src="/assets/images/ifb.png" alt="IFB">
+                    <span>IFB Industries</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/assets/images/lg.png" alt="LG">
+                    <span>LG Electronics</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/assets/images/whirlpool.png" alt="Whirlpool">
+                    <span>Whirlpool</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+    <section id="contact">
+        <h2>Headquarters</h2>
+        <div class="contact-container">
+            <div class="contact-box">
+                <p><strong>Registered Office:</strong> Plot No. B-23, Sy No. 208, KSSIDC, Gamanagatti Industrial Estate, Hubballi, Karnataka - 580025</p>
+                <p><strong>Official Email:</strong> <a href="mailto:sf_pl@yahoo.co.in">sf_pl@yahoo.co.in</a></p>
+                <p><strong>Operating Hours:</strong> Mon - Sat: 9:00 AM - 6:00 PM</p>
+            </div>
+            
+            <div class="map-box">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.0934976395965!2d75.0473623!3d15.371421899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d72374414437%3A0xa7a09dbe20748ed9!2sSangam%20Fasteners%20Private%20Limited!5e0!3m2!1sen!2sin!4v1772738459635!5m2!1sen!2sin"
+                    width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="cert-ribbon">
+        <div class="cert-item">🛡️ ISO 9001 CERTIFIED</div>
+        <div class="cert-item">🏭 HUBBALLI HUB</div>
+        <div class="cert-item">🇮🇳 PAN-INDIA SUPPLIER</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sangam Fasteners Private Limited. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

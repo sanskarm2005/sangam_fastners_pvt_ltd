@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;700&display=swap');
+
+:root {
+    --primary-blue: #0f172a;
+    --accent-gold: #fbbf24;
+    --text-slate: #475569;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-blue);
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+}
+
+/* --- Premium Navigation --- */
+header {
+    /* Visuals: Dark blue with 98% opacity and glass blur effect */
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    color: var(--white);
+    
+    /* Layout: Fixed at the very top and full width */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    
+    /* Layering & Shadow */
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    
+    /* Transition for smooth feel */
+    transition: all 0.3s ease;
+}
+
+body {
+    padding-top: 68px; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-left: 30px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-gold);
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* This kills the horizontal white space */
+    position: relative;
+}
+
+/* --- High-Impact Hero --- */
+#home {
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4)), 
+                url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    color: var(--white);
+}
+
+#home h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #cbd5e1;
+}
+
+#typing-text::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    margin-left: 5px;
+    color: var(--accent-gold);
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.btn-main {
+    width: fit-content;
+    padding: 15px 40px;
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+}
+
+/* --- Hamburger Icon Styling --- */
+.menu-toggle {
+    display: none; /* Hidden on Desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+/* The default state of the link */
+a {
+    color: #fbbf24; 
+    text-decoration: none; /* Removes the underline */
+    transition: color 0.3s ease;
+}
+
+/* When you hover over it with a mouse */
+a:hover {
+    color: #b33333; 
+    text-decoration: underline;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: 0.3s;
+}
+
+/* --- Mobile View (768px and below) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row !important; /* Overrides any previous stacking */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex; /* Show on Mobile */
+        order: 2; /* Move it to the end of the flex container */
+    }
+
+    .logo {
+        order: 1; /* Keep logo at the start */
+    }
+
+    #nav-list {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(15, 23, 42, 0.98);
+        padding: 20px 0;
+        text-align: center;
+        
+        /* Add these for a smooth entrance */
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    #nav-list.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    #nav-list li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .client-grid {
+        display: grid;
+        /* Create 2 equal columns */
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px;
+        justify-items: center; /* Centers items horizontally in their cells */
+    }
+
+    /* Target the 3rd logo (Whirlpool) specifically */
+    .client-logo:nth-child(3) {
+        /* This tells the 3rd item to span across both columns */
+        grid-column: 1 / span 2; 
+        justify-self: center;
+    }
+}
+
+/* --- Content Styling --- */
+/* 1. Remove the margin fix we tried earlier (it can conflict with JS) */
+section {
+    scroll-margin-top: 0 !important; 
+    margin-top: 0 !important;
+    padding: 50px;
+    padding-top: 40px;    /* Internal space within the section */
+    padding-bottom: 40px; 
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 5px;
+    background: var(--accent-gold);
+}
+
+/* --- Glass Corporate Cards --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    transition: 0.4s;
+}
+
+.info-card:hover {
+    border-color: var(--accent-gold);
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.info-card h3 {
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+    font-family: 'Oswald', sans-serif;
+}
+
+/* --- Contact Area --- */
+#contact {
+    background: #1e293b;
+    color: white;
+}
+
+.contact-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.map-box {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.product-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--primary-blue);
+}
+
+/* Financial Dashboard Styles */
+.financial-summary {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--accent-gold);
+}
+
+.stat-card h4 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.chart-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Product Image Styling */
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .chart-container, .financial-summary { grid-template-columns: 1fr; flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 2rem; /* Smaller font for mobile */
+        word-wrap: break-word;
+    }
+    
+    .chart-container canvas {
+        max-width: 100% !important; /* Forces charts to stay inside the screen */
+    }
+}
+
+/* Client Section */
+#clients {
+    background: #f8fafc; /* Light grey to make the white section pop */
+    padding: 80px 5%;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 50px;
+}
+
+.client-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.client-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.client-logo img {
+    height: 60px; /* Uniform height for all logos */
+    width: auto;
+    filter: grayscale(100%); /* Make them all grey initially */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%); /* Restore original colors on hover */
+    opacity: 1;
+    transform: scale(1.1); /* Slight zoom */
+}
+
+.client-logo span {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .client-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Trust Bar --- */
+.trust-bar {
+    margin-top: 60px;
+    padding: 30px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.trust-bar span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-slate);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.client-names {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: #94a3b8;
+    letter-spacing: 5px;
+}
+
+/* --- Back to Top Button --- */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--accent-gold);
+    color: var(--primary-blue);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Certification Ribbon --- */
+.cert-ribbon {
+    display: flex;
+    justify-content: space-around;
+    background: var(--primary-blue);
+    padding: 30px 10%;
+    color: var(--accent-gold);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .cert-ribbon { flex-direction: column; text-align: center; gap: 15px; }
+}
+
+/* --- 1. Animated Background Mesh --- */
+.bg-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.05), transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(15, 23, 42, 0.05), transparent 30%);
+    animation: meshMove 20s infinite alternate ease-in-out;
+}
+
+@keyframes meshMove {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.2) translate(5%, 5%); }
+}
+
+/* --- 2. Scroll-Reveal Animation --- */
+/* This makes sections fade and slide up as you scroll to them */
+/* Initial state: Hidden and slightly shifted down */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out; /* Smooth fade in */
+    visibility: hidden;
+}
+
+/* Triggered state: Visible and in position */
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* --- 3. Glassmorphism Upgrade for Cards --- */
+/* We are making the info cards look like "Frosted Glass" */
+.info-card {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* --- 4. Glowing Text Effect for Logo --- */
+.logo {
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+    transition: 0.5s;
+}
+
+.logo:hover {
+    text-shadow: 0 0 25px rgba(251, 191, 36, 0.8);
+}
+
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid #1e293b;
+}
+
+/* --- Mobile Responsive Fixes --- */
+
+@media (max-width: 768px) {
+    /* Reduce font size for the Hero heading */
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Stack the Financial Charts vertically */
+    .chart-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack the Stats (Revenue/Profit) vertically */
+    .financial-summary {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Stack the Corporate Info Cards */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Navigation Adjustment: 
+       On mobile, we usually hide the menu or stack it. 
+       For now, let's stack it for easy clicking. */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    section {
+        padding: 20px; /* Reduces side padding on mobile so content is wider */
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    /* Ensure images don't overflow */
+    .product-card img {
+        height: auto;
+    }
+
+    /* Adjust the About section flexbox */
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.counter {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Optional: Add the suffix like "Cr" or "%" back via CSS if you want */
+.stat-card:nth-child(1) h4::after { content: ' Cr'; font-size: 1.2rem; }
+.stat-card:nth-child(2) h4::after { content: '%'; font-size: 1.2rem; }
