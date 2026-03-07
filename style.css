@@ -23,25 +23,68 @@ body {
 
 /* --- Premium Navigation --- */
 header {
-    /* Visuals: Dark blue with 98% opacity and glass blur effect */
     background: rgba(15, 23, 42, 0.98);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    color: var(--white);
-    
-    /* Layout: Fixed at the very top and full width */
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     padding: 1rem 5%;
-    
-    /* Layering & Shadow */
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    
-    /* Transition for smooth feel */
     transition: all 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* Groups Name and Logo together */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.company-logo img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* Horizontal List for Web */
+#nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#nav-list li a:hover {
+    color: #3b82f6; /* Subtle blue highlight on hover */
+}
+
+/* Hide toggle for desktop-only version */
+.menu-toggle {
+    display: none;
 }
 
 body {
@@ -180,6 +223,14 @@ a:hover {
 
 /* --- Mobile View (768px and below) --- */
 @media (max-width: 768px) {
+     #nav-list {
+        display: none; /* Hide links on mobile until toggled */
+    }
+    
+    .menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
     nav {
         flex-direction: row !important; /* Overrides any previous stacking */
         justify-content: space-between;
